@@ -1,0 +1,51 @@
+#pragma once
+
+#ifndef Petal_Source_EntryFunction_Included
+#define Petal_Source_EntryFunction_Included
+
+// Define Entry Function
+
+#define Petal_Define_EntryFunctionA()				__stdcall WinMain(_In_ hins32 hInstance, _In_opt_ hins32 hPrevIns, _In_ ptastr szCmdLine, _In_ winint iCmdShow)
+#define Petal_Define_EntryFunctionU()				__stdcall wWinMain(_In_ hins32 hInstance, _In_opt_ hins32 hPrevIns, _In_ ptustr szCmdLine, _In_ winint iCmdShow)
+#if defined(Petal_Define_Unicode)
+#define Petal_Define_EntryFunction()				Petal_Define_EntryFunctionU()
+#else
+#define Petal_Define_EntryFunction()				Petal_Define_EntryFunctionA()
+#endif
+
+winint PetalMain();
+
+winint Petal_Define_EntryFunction()
+{
+	Petal::InnerParameters::pt_this_instance_handle = hInstance;
+	Petal::InnerParameters::pt_this_cmd_show = iCmdShow;
+	UNREFERENCED_PARAMETER(hPrevIns);
+	UNREFERENCED_PARAMETER(szCmdLine);
+	winint main_rst = PetalMain();
+#if defined(Petal_Source_Resource_Included)
+	DeleteObject(white);
+	DeleteObject(Silver);
+	DeleteObject(gray);
+	DeleteObject(black);
+	DeleteObject(snow);
+	DeleteObject(azure);
+	DeleteObject(blue);
+	DeleteObject(cyan);
+	DeleteObject(green);
+	DeleteObject(yellow);
+	DeleteObject(gold);
+	DeleteObject(orange);
+	DeleteObject(orange_red);
+	DeleteObject(red);
+	DeleteObject(crimson);
+	DeleteObject(brown);
+	DeleteObject(pink);
+	DeleteObject(hot_pink);
+	DeleteObject(deep_pink);
+	DeleteObject(violet);
+	DeleteObject(purple);
+#endif
+	return main_rst;
+}
+
+#endif

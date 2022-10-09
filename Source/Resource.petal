@@ -1,0 +1,82 @@
+#pragma once
+
+#ifndef Petal_Source_Resource_Included
+#define Petal_Source_Resource_Included
+
+#include <Petal~Types.h>
+
+namespace Petal
+{
+	namespace icon
+	{
+		hicon32 application = LoadIcon(NULL, IDI_APPLICATION);
+		hicon32 hand = LoadIcon(NULL, IDI_HAND);
+		hicon32 question = LoadIcon(NULL, IDI_QUESTION);
+		hicon32 exclamation = LoadIcon(NULL, IDI_EXCLAMATION);
+		hicon32 asterisk = LoadIcon(NULL, IDI_ASTERISK);
+		hicon32& app = application;
+#if(WINVER >= 0x0400)
+		hicon32 winlogo = LoadIcon(NULL, IDI_WINLOGO);
+		hicon32& warning = exclamation;
+		hicon32& error = hand;
+		hicon32& information = asterisk;
+		hicon32& info = information;
+#endif
+#if(WINVER >= 0x0600)
+		hicon32 shield = LoadIcon(NULL, IDI_SHIELD);
+#endif
+	}
+	namespace cursor
+	{
+		hcursor32 arrow = LoadCursor(NULL, IDC_ARROW);
+		hcursor32 ibeam = LoadCursor(NULL, IDC_IBEAM);
+		hcursor32 wait = LoadCursor(NULL, IDC_WAIT);
+		hcursor32 cross = LoadCursor(NULL, IDC_CROSS);
+		hcursor32 uparrow = LoadCursor(NULL, IDC_UPARROW);
+		hcursor32 size = LoadCursor(NULL, IDC_SIZE);
+		hcursor32 icon = LoadCursor(NULL, IDC_ICON);
+		hcursor32 size_nwse = LoadCursor(NULL, IDC_SIZENWSE);
+		hcursor32 size_nesw = LoadCursor(NULL, IDC_SIZENESW);
+		hcursor32 size_we = LoadCursor(NULL, IDC_SIZEWE);
+		hcursor32 size_ns = LoadCursor(NULL, IDC_SIZENS);
+		hcursor32 size_all = LoadCursor(NULL, IDC_SIZEALL);
+		hcursor32 no = LoadCursor(NULL, IDC_NO);
+		hcursor32 appstarting = LoadCursor(NULL, IDC_APPSTARTING);
+#if(WINVER >= 0x0400)
+		hcursor32 help = LoadCursor(NULL, IDC_HELP);
+#endif
+#if(WINVER >= 0x0500)
+		hcursor32 hand = LoadCursor(NULL, IDC_HAND);
+#endif
+#if(WINVER >= 0x0606)
+		hcursor32 pin = LoadCursor(NULL, IDC_PIN);
+		hcursor32 person = LoadCursor(NULL, IDC_PERSON);
+#endif
+	}
+	namespace brush
+	{
+		hbrush32 white = CreateSolidBrush(RGB(255, 255, 255));
+		hbrush32 Silver = CreateSolidBrush(RGB(192, 192, 192));
+		hbrush32 gray = CreateSolidBrush(RGB(127, 127, 127));
+		hbrush32 black = CreateSolidBrush(RGB(0, 0, 0));
+		hbrush32 snow = CreateSolidBrush(RGB(255, 250, 250));
+		hbrush32 azure = CreateSolidBrush(RGB(240, 255, 255));
+		hbrush32 blue = CreateSolidBrush(RGB(0, 0, 255));
+		hbrush32 cyan = CreateSolidBrush(RGB(0, 255, 255));
+		hbrush32 green = CreateSolidBrush(RGB(0, 255, 0));
+		hbrush32 yellow = CreateSolidBrush(RGB(255, 255, 0));
+		hbrush32 gold = CreateSolidBrush(RGB(255, 215, 0));
+		hbrush32 orange = CreateSolidBrush(RGB(255, 165, 0));
+		hbrush32 orange_red = CreateSolidBrush(RGB(255, 69, 0));
+		hbrush32 red = CreateSolidBrush(RGB(255, 0, 0));
+		hbrush32 crimson = CreateSolidBrush(RGB(220, 20, 60));
+		hbrush32 brown = CreateSolidBrush(RGB(165, 42, 42));
+		hbrush32 pink = CreateSolidBrush(RGB(255, 192, 203));
+		hbrush32 hot_pink = CreateSolidBrush(RGB(255, 105, 180));
+		hbrush32 deep_pink = CreateSolidBrush(RGB(255, 20, 147));
+		hbrush32 violet = CreateSolidBrush(RGB(238, 130, 238));
+		hbrush32 purple = CreateSolidBrush(RGB(160, 32, 240));
+	}
+}
+
+#endif

@@ -1,0 +1,79 @@
+namespace Petal
+{
+	namespace InnerParameters
+	{
+		extern message256 message;
+	}
+}
+
+// Petal Class MessageLoopU 256
+
+Petal_Class_MessageLoopU256::Petal_Class_MessageLoopU256(ptbool use_peek_message_function) :
+	pt_use_peek_message(use_peek_message_function)
+{
+
+}
+Petal_Class_MessageLoopU256::~Petal_Class_MessageLoopU256()
+{
+	memset(this, 0, sizeof Petal_Class_MessageLoopU256);
+}
+
+cppint Petal_Class_MessageLoopU256::exec()
+{
+	if (pt_use_peek_message)
+	{
+		while (Petal::InnerParameters::message.message != WM_QUIT)
+		{
+			if (PeekMessageW((LPMSG)&Petal::InnerParameters::message, NULL, 0, 0, PM_REMOVE))
+			{
+				TranslateMessage((LPMSG)&Petal::InnerParameters::message);
+				DispatchMessageW((LPMSG)&Petal::InnerParameters::message);
+			}
+		}
+	}
+	else
+	{
+		while (GetMessageW((LPMSG)&Petal::InnerParameters::message, NULL, 0, 0))
+		{
+			TranslateMessage((LPMSG)&Petal::InnerParameters::message);
+			DispatchMessageW((LPMSG)&Petal::InnerParameters::message);
+		}
+	}
+	return Petal::InnerParameters::message.wParam;
+}
+
+// Petal Class MessageLoopA 256
+
+Petal_Class_MessageLoopA256::Petal_Class_MessageLoopA256(ptbool use_peek_message_function) :
+	pt_use_peek_message(use_peek_message_function)
+{
+
+}
+Petal_Class_MessageLoopA256::~Petal_Class_MessageLoopA256()
+{
+	memset(this, 0, sizeof Petal_Class_MessageLoopA256);
+}
+
+cppint Petal_Class_MessageLoopA256::exec()
+{
+	if (pt_use_peek_message)
+	{
+		while (Petal::InnerParameters::message.message != WM_QUIT)
+		{
+			if (PeekMessageA((LPMSG)&Petal::InnerParameters::message, NULL, 0, 0, PM_REMOVE))
+			{
+				TranslateMessage((LPMSG)&Petal::InnerParameters::message);
+				DispatchMessageA((LPMSG)&Petal::InnerParameters::message);
+			}
+		}
+	}
+	else
+	{
+		while (GetMessageA((LPMSG)&Petal::InnerParameters::message, NULL, 0, 0))
+		{
+			TranslateMessage((LPMSG)&Petal::InnerParameters::message);
+			DispatchMessageA((LPMSG)&Petal::InnerParameters::message);
+		}
+	}
+	return Petal::InnerParameters::message.wParam;
+}

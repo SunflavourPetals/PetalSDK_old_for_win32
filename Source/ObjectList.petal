@@ -1,0 +1,16 @@
+#pragma once
+
+#ifndef Petal_Source_ObjectList_Included
+#define Petal_Source_ObjectList_Included
+
+#include <Petal~Object.h>
+
+namespace Petal
+{
+	namespace InnerParameters
+	{
+		Petal_Class_ObjectList pt_object_list;
+	}
+}
+
+#endif

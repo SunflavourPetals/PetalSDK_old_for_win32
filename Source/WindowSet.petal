@@ -1,0 +1,17 @@
+#pragma once
+
+#ifndef Petal_Source_WindowSet_Included
+#define Petal_Source_WindowSet_Included
+
+#include <Petal~Window.h>
+
+namespace Petal
+{
+	namespace InnerParameters
+	{
+		Petal_Class_WindowSetU Petal_CoreData_WindowSetU;
+		Petal_Class_WindowSetA Petal_CoreData_WindowSetA;
+	}
+}
+
+#endif

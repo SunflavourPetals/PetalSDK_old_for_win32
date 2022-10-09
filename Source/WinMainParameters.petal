@@ -1,0 +1,20 @@
+#pragma once
+
+#ifndef Petal_Source_WinMainParameters_Included
+#define Petal_Source_WinMainParameters_Included
+
+#include <Petal~Types.h>
+
+namespace Petal
+{
+	namespace InnerParameters
+	{
+		hins32 pt_this_instance_handle;
+		winint pt_this_cmd_show;
+		message256 message;
+		uint32 window_num = 1;
+		uint32 timer_default_id = 65537;
+	}
+}
+
+#endif
